@@ -1,0 +1,18 @@
+# Update the package index
+sudo yum update -y
+
+# Install required dependencies
+sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+
+# Add the Docker repository
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+# Install Docker and related packages
+sudo yum install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+# Start and enable the Docker service
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# Verify Docker installation
+docker --version
